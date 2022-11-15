@@ -22,6 +22,7 @@ public class DoorKey : MonoBehaviour
             {
                 keyRB.constraints = RigidbodyConstraints.None;
                 key.GetComponent<PerObjectOoB>().BackToStartPos();
+                inLock = false;
             }
         }
     }
@@ -29,6 +30,7 @@ public class DoorKey : MonoBehaviour
     {
         if(other.CompareTag("Key"))
         {
+            inLock = true;
             key.transform.eulerAngles = new Vector3(-90, 180, 0);
             keyRB.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ;
             keyRB.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationY;
