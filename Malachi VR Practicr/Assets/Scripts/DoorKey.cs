@@ -21,6 +21,7 @@ public class DoorKey : MonoBehaviour
             if (key.transform.eulerAngles.x >= 0 || key.transform.eulerAngles.x <= -180f)
             {
                 keyRB.constraints = RigidbodyConstraints.None;
+                keyRB.isKinematic = false;
                 key.GetComponent<PerObjectOoB>().BackToStartPos();
                 inLock = false;
             }
