@@ -16,7 +16,10 @@ public class HandPresencePhysics : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //
         rb.velocity = (target.position - transform.position) / Time.fixedDeltaTime;
+
+        //
         Quaternion rotationDifference = target.rotation * Quaternion.Inverse(transform.rotation);
         rotationDifference.ToAngleAxis(out float angleInDegree, out Vector3 rotationAxis);
 
