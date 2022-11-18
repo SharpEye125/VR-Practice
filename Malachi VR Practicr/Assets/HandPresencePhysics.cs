@@ -8,10 +8,12 @@ public class HandPresencePhysics : MonoBehaviour
     private Rigidbody rb;
     public Renderer nonPhysicalHand;
     public float showNonPhysicalHandDistance = 0.05f;
+    private Collider[] handColliders;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        handColliders = GetComponentsInChildren<Collider>();
     }
 
     // Update is called once per frame
@@ -41,5 +43,19 @@ public class HandPresencePhysics : MonoBehaviour
 
         rb.angularVelocity = (rotationDifferenceInDegree *Mathf.Deg2Rad/ Time.fixedDeltaTime);
 
+    }
+    public void EnableHandCollider()
+    {
+        foreach (var item in handColliders)
+        {
+            item.enabled = true;
+        }
+    }
+    public void DisableHandCollider()
+    {
+        foreach (var item in handColliders)
+        {
+            item.enabled = false;
+        }
     }
 }
