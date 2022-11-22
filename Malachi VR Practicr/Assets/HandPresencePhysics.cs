@@ -58,4 +58,8 @@ public class HandPresencePhysics : MonoBehaviour
             item.enabled = false;
         }
     }
+    public void EnableColliderDelay(float delay)
+    {
+        Invoke("EnableHandCollider", delay);
+    }
 }
