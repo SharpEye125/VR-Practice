@@ -16,7 +16,16 @@ public class DoorKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (inLock == true)
+        {
+            if (key.transform.rotation.x <= 150f && key.transform.rotation.x >= -180f)
+            {
+                keyRB.constraints = RigidbodyConstraints.None;
+                keyRB.isKinematic = false;
+                key.GetComponent<PerObjectOoB>().BackToStartPos();
+                inLock = false;
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -24,9 +33,12 @@ public class DoorKey : MonoBehaviour
         {
             inLock = true;
             key.transform.eulerAngles = new Vector3(-90, 180, 0);
-            keyRB.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ;
-            keyRB.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationY;
+            keyRB.constraints = RigidbodyConstraints.FreezePositionZ;
+            keyRB.constraints = RigidbodyConstraints.FreezePositionY;
             keyRB.constraints = RigidbodyConstraints.FreezePositionX;
+
+            keyRB.constraints = RigidbodyConstraints.FreezeRotationY;
+            keyRB.constraints = RigidbodyConstraints.FreezeRotationZ;
         }
         
     }
