@@ -18,7 +18,7 @@ public class DoorKey : MonoBehaviour
     {
         if (inLock == true)
         {
-            if (key.transform.eulerAngles.x <= -0f && key.transform.eulerAngles.x >= -30f)
+            if (key.transform.eulerAngles.x <= 0f && key.transform.eulerAngles.x >= -30f)
             {
                 keyRB.constraints = RigidbodyConstraints.None;
                 //keyRB.isKinematic = false;
@@ -41,5 +41,19 @@ public class DoorKey : MonoBehaviour
             keyRB.constraints = RigidbodyConstraints.FreezeRotationZ;
         }
         
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Key"))
+        {
+            
+            
+            keyRB.constraints = RigidbodyConstraints.FreezePositionZ;
+            keyRB.constraints = RigidbodyConstraints.FreezePositionY;
+            keyRB.constraints = RigidbodyConstraints.FreezePositionX;
+
+            keyRB.constraints = RigidbodyConstraints.FreezeRotationY;
+            keyRB.constraints = RigidbodyConstraints.FreezeRotationZ;
+        }
     }
 }
