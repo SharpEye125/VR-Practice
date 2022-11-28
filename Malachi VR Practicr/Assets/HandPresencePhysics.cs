@@ -9,6 +9,8 @@ public class HandPresencePhysics : MonoBehaviour
     public Renderer nonPhysicalHand;
     public float showNonPhysicalHandDistance = 0.05f;
     private Collider[] handColliders;
+    public float physDelay = 1f;
+    bool isGrabbing;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,16 @@ public class HandPresencePhysics : MonoBehaviour
         else
         {
             nonPhysicalHand.enabled = false;
+        }
+        if (rb.isKinematic == true)
+        {
+            isGrabbing = true;
+            DisableHandCollider();
+        }
+        else if (rb.isKinematic == false && isGrabbing == true)
+        {
+            isGrabbing = false;
+            EnableColliderDelay(physDelay);
         }
     }
     void FixedUpdate()

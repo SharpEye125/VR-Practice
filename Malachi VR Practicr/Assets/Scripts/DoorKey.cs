@@ -18,10 +18,10 @@ public class DoorKey : MonoBehaviour
     {
         if (inLock == true)
         {
-            if (key.transform.rotation.x <= -150f && key.transform.rotation.x >= -180f)
+            if (key.transform.eulerAngles.x <= -0f && key.transform.eulerAngles.x >= -30f)
             {
                 keyRB.constraints = RigidbodyConstraints.None;
-                keyRB.isKinematic = false;
+                //keyRB.isKinematic = false;
                 key.GetComponent<PerObjectOoB>().BackToStartPos();
                 inLock = false;
             }
@@ -29,7 +29,7 @@ public class DoorKey : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Key"))
+        if(other.CompareTag("Key") && inLock != true)
         {
             inLock = true;
             key.transform.eulerAngles = new Vector3(-90, 180, 0);
