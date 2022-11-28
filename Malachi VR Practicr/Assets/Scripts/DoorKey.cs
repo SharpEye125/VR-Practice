@@ -18,7 +18,7 @@ public class DoorKey : MonoBehaviour
     {
         if (inLock == true)
         {
-            if (key.transform.rotation.x >= 0 || key.transform.rotation.x <= -180f)
+            if (key.transform.rotation.x <= 150f && key.transform.rotation.x >= -180f)
             {
                 keyRB.constraints = RigidbodyConstraints.None;
                 keyRB.isKinematic = false;
