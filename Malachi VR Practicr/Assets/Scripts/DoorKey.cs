@@ -16,16 +16,7 @@ public class DoorKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inLock == true)
-        {
-            if (key.transform.rotation.x <= 150f && key.transform.rotation.x >= -180f)
-            {
-                keyRB.constraints = RigidbodyConstraints.None;
-                keyRB.isKinematic = false;
-                key.GetComponent<PerObjectOoB>().BackToStartPos();
-                inLock = false;
-            }
-        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
