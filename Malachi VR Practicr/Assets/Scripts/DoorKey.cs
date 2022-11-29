@@ -5,8 +5,11 @@ using UnityEngine;
 public class DoorKey : MonoBehaviour
 {
     public GameObject key;
+    public Transform keyPositionSnap;
     Rigidbody keyRB;
     bool inLock = false;
+    [SerializeField]
+    public Event keyMeetsLock;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,28 +35,10 @@ public class DoorKey : MonoBehaviour
         if(other.CompareTag("Key") && inLock != true)
         {
             inLock = true;
+            key.transform.position = keyPositionSnap.position;
+            keyRB.velocity = new Vector3(0, 0, 0);
             key.transform.eulerAngles = new Vector3(-90, 180, 0);
-            keyRB.constraints = RigidbodyConstraints.FreezePositionZ;
-            keyRB.constraints = RigidbodyConstraints.FreezePositionY;
-            keyRB.constraints = RigidbodyConstraints.FreezePositionX;
-
-            keyRB.constraints = RigidbodyConstraints.FreezeRotationY;
-            keyRB.constraints = RigidbodyConstraints.FreezeRotationZ;
         }
         
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Key"))
-        {
-            
-            
-            keyRB.constraints = RigidbodyConstraints.FreezePositionZ;
-            keyRB.constraints = RigidbodyConstraints.FreezePositionY;
-            keyRB.constraints = RigidbodyConstraints.FreezePositionX;
-
-            keyRB.constraints = RigidbodyConstraints.FreezeRotationY;
-            keyRB.constraints = RigidbodyConstraints.FreezeRotationZ;
-        }
     }
 }

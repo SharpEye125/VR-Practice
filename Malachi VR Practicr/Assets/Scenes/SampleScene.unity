@@ -598,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36ff6d966cce9e04e8956f03f0dc578d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.275
+      value: -0.2316
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36ff6d966cce9e04e8956f03f0dc578d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2245,7 +2245,7 @@ GameObject:
   - component: {fileID: 694054690}
   - component: {fileID: 694054693}
   m_Layer: 0
-  m_Name: Collider Cube
+  m_Name: Lock Collider Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2283,7 +2283,8 @@ Transform:
   m_LocalPosition: {x: -7.987, y: -0.743, z: -6.227}
   m_LocalScale: {x: 0.5, y: 0.6, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1812685279}
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -2300,6 +2301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 538716500}
+  keyPositionSnap: {fileID: 1812685279}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,6 +4959,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useMinimumY: 1
   minY: -10
+--- !u!1 &1812685278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812685279}
+  m_Layer: 0
+  m_Name: KeyPosSnap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1812685279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812685278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 694054692}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1830904219
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,6 +6267,7 @@ MonoBehaviour:
   target: {fileID: 528059127}
   nonPhysicalHand: {fileID: 3143507107786795518}
   showNonPhysicalHandDistance: 0.05
+  physDelay: 1
 --- !u!1 &2625802357354919362
 GameObject:
   m_ObjectHideFlags: 0
@@ -6686,6 +6720,7 @@ MonoBehaviour:
   target: {fileID: 528063129}
   nonPhysicalHand: {fileID: 5492864345872475407}
   showNonPhysicalHandDistance: 0.05
+  physDelay: 1
 --- !u!4 &5143977707470111565
 Transform:
   m_ObjectHideFlags: 0
